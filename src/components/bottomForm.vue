@@ -1,6 +1,6 @@
 <template>
   <div id="bottomForm">
-      <button id="Gacha" @click="btnGacha">
+      <button id="Gacha" v-if="!seen" @click="btnGacha">
             >按我抽卡
       </button>
       <br/>
