@@ -29,16 +29,16 @@ export default {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 10px 10px;
+            padding: 2vh 2vh;
             border-radius: 20px;
+            margin: 0.5vh 0.5vh;
             background:rgba(255, 255, 255, 0.25);
         }
     #question{
         font-family: MiSans-Heavy;
-        font-size: 50px;
+        font-size: 6vh;
     }
     #answer{
-        font-size: 35px;
+        font-size: 4vh;
     }
-
 </style>

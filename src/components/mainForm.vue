@@ -1,38 +1,105 @@
+
 <template>
-    <div id="mainform">
-        <UpperForm
-            meal="猪扒包">
-        </UpperForm>
+    <div class="mainform">
+        <ShowDetailText
+            :titleText="titleText"
+            :mainText="mainText">
+            </ShowDetailText>
+        <br v-if="seen"/>
+        <GachaButton
+            v-if="seen"
+            @GachaOnClick="gachaonclick">
+            </GachaButton>
         <br/>
-        <BottomForm
-            meal="猪扒包"></BottomForm>
+        <ReGachaButton
+            v-if="!seen"
+            @GachaOnClick="gachaonclick">
+            </ReGachaButton>
+        <br/>
+        <ShowMealDetailButton
+            :mealText="mainText"
+            v-if="!seen">
+            </ShowMealDetailButton>
+
     </div>
 </template>
 
 <script>
-import UpperForm from './upperForm.vue'
-import BottomForm from './bottomForm.vue';
+import GachaButton from './gacha-button.vue';
+import ShowDetailText from './showDetail-text.vue';
+import ReGachaButton from './reGacha-button.vue';
+import ShowMealDetailButton from './showMealDetail-button.vue';
+
 
 export default {
     data() {
         return {
-            Text1: "HelloWorld"
+            titleText:'这顿吃',
+            mainText:'',
+            seen:true
         };
     },
-    methods: {},
-    components: { UpperForm, BottomForm}
+    methods: {
+        gachaonclick(val){
+            this.mainText=val.meal
+            this.seen=val.ans
+        }
+    },
+    // updated:{
+    //     seen:GachaButton.data.seen
+    // },
+    components: { GachaButton, ShowDetailText, ReGachaButton, ShowMealDetailButton }
 }
 </script>
 
-<style >
 
-    #mainform{
+<style>
+@font-face {
+    font-family: MiSans-Normal;
+    src: url(../fonts/MiSans/MiSans-Normal.ttf);
+}
+    .mainform{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        /* flex-direction: column;
+        flex-wrap: wrap; */
+        flex-flow: column wrap;
+        color: white;
+        width: 60vw;
+        height: 70vh;
+        background: rgba(255,255,255,0.25);
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+
+    }
+    .form{
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
-        border-radius: 35px;
-        padding: 25px 25px;
-        background:rgba(255, 255, 255, 0.25);
+
+        width: 50vw;
+        height: 30vh;
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+
     }
-    
+    .btn{
+        position: relative;
+        width: 50vw;
+        height: 5vh;
+        border: none;
+        outline: none;
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        color:white;
+        font-family: MiSans-Normal;
+        font-size: 3vh;
+
+    }
+
 </style>
