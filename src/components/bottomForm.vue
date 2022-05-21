@@ -26,15 +26,15 @@ export default {
         meal:String
     },
     methods:{
-        btnGacha:()=>{
-            alert("抽了一张卡");
-            this.seen = true;
+        btnGacha(){
+            this.seen = !this.seen
+            alert("抽了一张");
         },
-        btnRemake:()=>{
-            alert('重置')
+        btnRemake(){
+            alert("换了一张");
         },
-        btnShow:()=>{
-            alert('balabala')
+        btnShow(){
+            alert("展示了卡片信息");
         }
     }
 
@@ -53,7 +53,8 @@ export default {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 10px 10px;
+            margin: 0.5vh 0.5vh;
+            padding: 2vh 2vh;
             border-radius: 20px;
             background:rgba(255, 255, 255, 0.25);
     }
@@ -65,12 +66,14 @@ export default {
             rgba(233, 106, 222,0.65) 50%,
             rgba(233, 106, 222,0.35)
             ); */
+        border-radius: 15px; 
         background:rgba(255, 255, 255, 0.25);
-        border-radius: 15px;
+        border-radius: 68px;
         justify-content: center;
         align-items: center;
         font-family: MiSans-Normal;
-        font-size: 25px;
+        font-size: 3vh;
+        margin: 0.5vh 0.5vh;
         color:white;
         border: none;
         outline: none;    
