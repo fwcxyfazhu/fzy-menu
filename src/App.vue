@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
       <mainForm></mainForm>
@@ -25,5 +26,4 @@ body{
         #eb4d38
     )
 }
-
 </style>

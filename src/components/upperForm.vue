@@ -41,5 +41,4 @@ export default {
     #answer{
         font-size: 4vh;
     }
-
 </style>

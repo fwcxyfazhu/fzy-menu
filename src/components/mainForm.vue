@@ -1,3 +1,4 @@
+
 <template>
     <div class="mainform">
         <ShowDetailText
@@ -102,5 +103,3 @@ export default {
     }
 
 </style>
-
-    
