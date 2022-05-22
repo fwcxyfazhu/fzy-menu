@@ -1,7 +1,7 @@
 // mongo.js文件
 
 const { MongoClient } = require('mongodb');
-const URL = 'mongodb://127.0.0.1:27114';
+const URL = 'mongodb://127.0.0.1:27017';
 
 const mongo = async () => {
   const client = new MongoClient(URL, {
