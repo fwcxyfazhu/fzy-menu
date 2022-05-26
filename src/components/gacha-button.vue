@@ -18,27 +18,39 @@ export default {
     },
     methods:{
         BtnCnClick(){
+            const mealId=Math.random(1,2)
+            alert(mealId)
+            const meal1 = this.findmeal(mealId)
             this.$emit("GachaOnClick",{
                 ans:false,
-                id:1,
-                meal:"猪扒包"
+                id:meal1.id,
+                meal:meal1.meal,
+                detail:meal1.detail
                 })
         },
-        findmeal(id){
+        findmeal(mealid){
             const { MongoClient } = require('mongodb');
             const URL = 'mongodb://127.0.0.1:27017';
             const client =new MongoClient(URL,{
                 useNewUrlParser:true,
                 useUnifiedTopology: true,
             });
-
+            
             async function findOne(){
                 try{
                     await client.connect();
                     const meals = client.db('fzymenu').collection('meals');
-                    
+                    const meal = meals.findOne({id:mealid})
+                    return meal;
+                }catch{
+                    console.dir;
+                }
+                finally{
+                    await client.close()
                 }
             }
+            return findOne()
+
         }
     },
 }
